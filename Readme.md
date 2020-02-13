@@ -35,6 +35,10 @@ This code need three dataset. Adobe Deep Matting Dataset is a dataset with foreg
 
    `./Adobe_Deep_Matting_Dataset/Combined_Dataset/Training_set/Adobe-licensed`
 
+   and
+
+   `./Adobe_Deep_Matting_Dataset/Combined_Dataset/Training_set/Other`
+
    to
 
    `./fg` and `./alpha`
