@@ -132,6 +132,9 @@ dmypy.json
 fg/
 bg/
 alpha/
+Result/
+Fusion/
+LytroDataset/
 
 # VSCode
 .vscode/
