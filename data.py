@@ -81,6 +81,7 @@ class bbox:
 def rotate_Fg_Alpha(fg, alpha, angle):
     def rotatedRectWithMaxArea(w, h, angle):
         """
+        https://stackoverflow.com/questions/16702966/rotate-image-and-crop-out-black-borders
         Given a rectangle of size wxh that has been rotated by 'angle' (in
         radians), computes the width and height of the largest possible
         axis-aligned rectangle (maximal area) within the rotated rectangle.
@@ -381,6 +382,7 @@ if __name__ == '__main__':
         guided = guided_filter(imgf_gray, n_alpha, 8, 0.1)
         guided = np.clip(guided, 0, 1)
 
+        # Randomly crop patches with size 320, 480, 640
         lt320 = get_high_variance_patch(alpha, (320, 320), 1)
         lt480 = get_high_variance_patch(alpha, (480, 480), 1)
         lt640 = get_high_variance_patch(alpha, (640, 640), 1)
@@ -485,6 +487,7 @@ if __name__ == '__main__':
                     gt = np.abs(1.0 - gt)
                 training_patches.append({'c1': c1, 'c2': c2, 'gt': gt})
 
+        # write training data into tfrecords file
         for patches in training_patches:
             if patches['c1'].shape == (
                     320, 320) and patches['c2'].shape == (
